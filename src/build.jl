@@ -88,3 +88,13 @@ function quarto_build_site(module_name)
     quarto_yaml(module_name)
 
 end
+
+function quarto_git_ignore()
+texto = """site/
+.quarto/
+.jupyter_cache/
+_freeze/
+"""
+
+write("docs/.gitignore", texto)
+end

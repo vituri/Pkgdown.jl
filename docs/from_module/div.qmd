@@ -5,6 +5,11 @@ engine: julia
 # div
     
 
+::: {.callout-note appearance="simple"}
+
+## docblock
+
+
 ```{julia}
 #| eval: false
 div(x, y)
@@ -42,8 +47,17 @@ julia> div.(-5:5, 3)'
 ```
 
 
+
+:::
+    
+
  --- 
  
+::: {.callout-note appearance="simple"}
+
+## docblock
+
+
 ```{julia}
 #| eval: false
 div(x, y, r::RoundingMode=RoundToZero)
@@ -104,4 +118,8 @@ julia> div(-4, 3, RoundFromZero)
 
 ```
 
+
+
+:::
+    
 

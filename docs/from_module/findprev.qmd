@@ -5,6 +5,11 @@ engine: julia
 # findprev
     
 
+::: {.callout-note appearance="simple"}
+
+## docblock
+
+
 ```{julia}
 #| eval: false
 findprev(A, i)
@@ -51,8 +56,17 @@ CartesianIndex(2, 1)
 ```
 
 
+
+:::
+    
+
  --- 
  
+::: {.callout-note appearance="simple"}
+
+## docblock
+
+
 ```{julia}
 #| eval: false
 findprev(predicate::Function, A, i)
@@ -96,8 +110,17 @@ CartesianIndex(2, 1)
 ```
 
 
+
+:::
+    
+
  --- 
  
+::: {.callout-note appearance="simple"}
+
+## docblock
+
+
 ```{julia}
 #| eval: false
 findprev(pattern::AbstractString, string::AbstractString, start::Integer)
@@ -133,8 +156,17 @@ julia> findprev("Julia", "JuliaLang", 6)
 ```
 
 
+
+:::
+    
+
  --- 
  
+::: {.callout-note appearance="simple"}
+
+## docblock
+
+
 ```{julia}
 #| eval: false
 findprev(ch::AbstractChar, string::AbstractString, start::Integer)
@@ -165,8 +197,17 @@ julia> findprev('o', "Hello to the world", 18)
 ```
 
 
+
+:::
+    
+
  --- 
  
+::: {.callout-note appearance="simple"}
+
+## docblock
+
+
 ```{julia}
 #| eval: false
 findprev(pattern::AbstractVector{<:Union{Int8,UInt8}},
@@ -195,4 +236,8 @@ julia> findprev([0x52, 0x62], [0x40, 0x52, 0x62, 0x52, 0x62], 3)
 
 ```
 
+
+
+:::
+    
 

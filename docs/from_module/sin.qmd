@@ -5,6 +5,11 @@ engine: julia
 # sin
     
 
+::: {.callout-note appearance="simple"}
+
+## docblock
+
+
 ```{julia}
 #| eval: false
 sin(x)
@@ -47,8 +52,17 @@ julia> round(exp(im*pi/6), digits=3)
 ```
 
 
+
+:::
+    
+
  --- 
  
+::: {.callout-note appearance="simple"}
+
+## docblock
+
+
 ```{julia}
 #| eval: false
 sin(A::AbstractMatrix)
@@ -76,4 +90,8 @@ julia> sin(fill(1.0, (2,2)))
 
 ```
 
+
+
+:::
+    
 

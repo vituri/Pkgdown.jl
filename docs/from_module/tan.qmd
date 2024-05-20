@@ -5,6 +5,11 @@ engine: julia
 # tan
     
 
+::: {.callout-note appearance="simple"}
+
+## docblock
+
+
 ```{julia}
 #| eval: false
 tan(x)
@@ -15,8 +20,17 @@ tan(x)
 Compute tangent of `x`, where `x` is in radians.
  
 
+
+:::
+    
+
  --- 
  
+::: {.callout-note appearance="simple"}
+
+## docblock
+
+
 ```{julia}
 #| eval: false
 tan(A::AbstractMatrix)
@@ -44,4 +58,8 @@ julia> tan(fill(1.0, (2,2)))
 
 ```
 
+
+
+:::
+    
 

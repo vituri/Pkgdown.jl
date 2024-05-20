@@ -117,7 +117,7 @@ end
 
 function quarto_doc_page(s)
 
-    blocks = qdoc(s)
+    blocks = qdoc(s) .|> quarto_callout_block
 
     qmd = 
     """
@@ -134,8 +134,25 @@ $(str_concat(blocks, sep = "\n --- \n "))
     write(path, qmd)
 end
 
-qdoc(:sin) |> println
+function quarto_callout_block(s)
 
-fs = [:sin, :cos, :tan, :mod, :div]
+"""
+
+::: {.callout-note appearance="simple"}
+
+## docblock
+
+$s
+
+:::
+    
+"""
+end
+
+s = :sin
+
+fs = [:sin, :cos, :tan, :mod, :div, :findall, :findfirst, :findprev]
 
 quarto_doc_page.(fs)
+
+quarto_doc_page(:sin)

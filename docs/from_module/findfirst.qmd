@@ -5,6 +5,11 @@ engine: julia
 # findfirst
     
 
+::: {.callout-note appearance="simple"}
+
+## docblock
+
+
 ```{julia}
 #| eval: false
 findfirst(A)
@@ -51,8 +56,17 @@ CartesianIndex(2, 1)
 ```
 
 
+
+:::
+    
+
  --- 
  
+::: {.callout-note appearance="simple"}
+
+## docblock
+
+
 ```{julia}
 #| eval: false
 findfirst(predicate::Function, A)
@@ -99,8 +113,17 @@ CartesianIndex(2, 1)
 ```
 
 
+
+:::
+    
+
  --- 
  
+::: {.callout-note appearance="simple"}
+
+## docblock
+
+
 ```{julia}
 #| eval: false
 findfirst(pattern::AbstractString, string::AbstractString)
@@ -127,8 +150,17 @@ julia> findfirst("Julia", "JuliaLang")
 ```
 
 
+
+:::
+    
+
  --- 
  
+::: {.callout-note appearance="simple"}
+
+## docblock
+
+
 ```{julia}
 #| eval: false
 findfirst(ch::AbstractChar, string::AbstractString)
@@ -159,8 +191,17 @@ true
 ```
 
 
+
+:::
+    
+
  --- 
  
+::: {.callout-note appearance="simple"}
+
+## docblock
+
+
 ```{julia}
 #| eval: false
 findfirst(pattern::AbstractVector{<:Union{Int8,UInt8}},
@@ -188,4 +229,8 @@ julia> findfirst([0x52, 0x62], [0x40, 0x52, 0x62, 0x63])
 
 ```
 
+
+
+:::
+    
 

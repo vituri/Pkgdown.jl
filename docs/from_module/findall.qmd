@@ -5,6 +5,11 @@ engine: julia
 # findall
     
 
+::: {.callout-note appearance="simple"}
+
+## docblock
+
+
 ```{julia}
 #| eval: false
 findall(f::Function, A)
@@ -67,8 +72,17 @@ julia> findall(x -> x >= 0, d)
 ```
 
 
+
+:::
+    
+
  --- 
  
+::: {.callout-note appearance="simple"}
+
+## docblock
+
+
 ```{julia}
 #| eval: false
 findall(A)
@@ -120,8 +134,17 @@ Int64[]
 ```
 
 
+
+:::
+    
+
  --- 
  
+::: {.callout-note appearance="simple"}
+
+## docblock
+
+
 ```{julia}
 #| eval: false
 findall(c::AbstractChar, s::AbstractString)
@@ -150,4 +173,8 @@ julia> findall('a', "batman")
 !!! compat "Julia 1.7"
     This method requires at least Julia 1.7.
 
+
+
+:::
+    
 

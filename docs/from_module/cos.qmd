@@ -5,6 +5,11 @@ engine: julia
 # cos
     
 
+::: {.callout-note appearance="simple"}
+
+## docblock
+
+
 ```{julia}
 #| eval: false
 cos(x)
@@ -18,8 +23,17 @@ Compute cosine of `x`, where `x` is in radians.
 See also [`cosd`](@ref), [`cospi`](@ref), [`sincos`](@ref), [`cis`](@ref).
  
 
+
+:::
+    
+
  --- 
  
+::: {.callout-note appearance="simple"}
+
+## docblock
+
+
 ```{julia}
 #| eval: false
 cos(A::AbstractMatrix)
@@ -47,4 +61,8 @@ julia> cos(fill(1.0, (2,2)))
 
 ```
 
+
+
+:::
+    
 
