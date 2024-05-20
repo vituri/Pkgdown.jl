@@ -1,0 +1,191 @@
+---
+engine: julia
+---
+
+# findfirst
+    
+
+```{julia}
+#| eval: false
+findfirst(A)
+
+```
+
+
+Return the index or key of the first `true` value in `A`. Return `nothing` if no such value is found. To search for other kinds of values, pass a predicate as the first argument.
+ 
+
+Indices or keys are of the same type as those returned by [`keys(A)`](@ref) and [`pairs(A)`](@ref).
+ 
+
+See also: [`findall`](@ref), [`findnext`](@ref), [`findlast`](@ref), [`searchsortedfirst`](@ref).
+ 
+
+
+### Examples
+    
+
+
+```{julia}
+#| eval: false
+julia> A = [false, false, true, false]
+4-element Vector{Bool}:
+ 0
+ 0
+ 1
+ 0
+
+julia> findfirst(A)
+3
+
+julia> findfirst(falses(3)) # returns nothing, but not printed in the REPL
+
+julia> A = [false false; true false]
+2×2 Matrix{Bool}:
+ 0  0
+ 1  0
+
+julia> findfirst(A)
+CartesianIndex(2, 1)
+
+```
+
+
+ --- 
+ 
+```{julia}
+#| eval: false
+findfirst(predicate::Function, A)
+
+```
+
+
+Return the index or key of the first element of `A` for which `predicate` returns `true`. Return `nothing` if there is no such element.
+ 
+
+Indices or keys are of the same type as those returned by [`keys(A)`](@ref) and [`pairs(A)`](@ref).
+ 
+
+
+### Examples
+    
+
+
+```{julia}
+#| eval: false
+julia> A = [1, 4, 2, 2]
+4-element Vector{Int64}:
+ 1
+ 4
+ 2
+ 2
+
+julia> findfirst(iseven, A)
+2
+
+julia> findfirst(x -> x>10, A) # returns nothing, but not printed in the REPL
+
+julia> findfirst(isequal(4), A)
+2
+
+julia> A = [1 4; 2 2]
+2×2 Matrix{Int64}:
+ 1  4
+ 2  2
+
+julia> findfirst(iseven, A)
+CartesianIndex(2, 1)
+
+```
+
+
+ --- 
+ 
+```{julia}
+#| eval: false
+findfirst(pattern::AbstractString, string::AbstractString)
+findfirst(pattern::AbstractPattern, string::String)
+
+```
+
+
+Find the first occurrence of `pattern` in `string`. Equivalent to [`findnext(pattern, string, firstindex(s))`](@ref).
+ 
+
+
+### Examples
+    
+
+
+```{julia}
+#| eval: false
+julia> findfirst("z", "Hello to the world") # returns nothing, but not printed in the REPL
+
+julia> findfirst("Julia", "JuliaLang")
+1:5
+
+```
+
+
+ --- 
+ 
+```{julia}
+#| eval: false
+findfirst(ch::AbstractChar, string::AbstractString)
+
+```
+
+
+Find the first occurrence of character `ch` in `string`.
+ 
+
+!!! compat "Julia 1.3"
+    This method requires at least Julia 1.3.
+
+
+
+### Examples
+    
+
+
+```{julia}
+#| eval: false
+julia> findfirst('a', "happy")
+2
+
+julia> findfirst('z', "happy") === nothing
+true
+
+```
+
+
+ --- 
+ 
+```{julia}
+#| eval: false
+findfirst(pattern::AbstractVector{<:Union{Int8,UInt8}},
+          A::AbstractVector{<:Union{Int8,UInt8}})
+
+```
+
+
+Find the first occurrence of sequence `pattern` in vector `A`.
+ 
+
+!!! compat "Julia 1.6"
+    This method requires at least Julia 1.6.
+
+
+
+### Examples
+    
+
+
+```{julia}
+#| eval: false
+julia> findfirst([0x52, 0x62], [0x40, 0x52, 0x62, 0x63])
+2:3
+
+```
+
+

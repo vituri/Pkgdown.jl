@@ -1,0 +1,153 @@
+---
+engine: julia
+---
+
+# findall
+    
+
+```{julia}
+#| eval: false
+findall(f::Function, A)
+
+```
+
+
+Return a vector `I` of the indices or keys of `A` where `f(A[I])` returns `true`. If there are no such elements of `A`, return an empty array.
+ 
+
+Indices or keys are of the same type as those returned by [`keys(A)`](@ref) and [`pairs(A)`](@ref).
+ 
+
+
+### Examples
+    
+
+
+```{julia}
+#| eval: false
+julia> x = [1, 3, 4]
+3-element Vector{Int64}:
+ 1
+ 3
+ 4
+
+julia> findall(isodd, x)
+2-element Vector{Int64}:
+ 1
+ 2
+
+julia> A = [1 2 0; 3 4 0]
+2×3 Matrix{Int64}:
+ 1  2  0
+ 3  4  0
+julia> findall(isodd, A)
+2-element Vector{CartesianIndex{2}}:
+ CartesianIndex(1, 1)
+ CartesianIndex(2, 1)
+
+julia> findall(!iszero, A)
+4-element Vector{CartesianIndex{2}}:
+ CartesianIndex(1, 1)
+ CartesianIndex(2, 1)
+ CartesianIndex(1, 2)
+ CartesianIndex(2, 2)
+
+julia> d = Dict(:A => 10, :B => -1, :C => 0)
+Dict{Symbol, Int64} with 3 entries:
+  :A => 10
+  :B => -1
+  :C => 0
+
+julia> findall(x -> x >= 0, d)
+2-element Vector{Symbol}:
+ :A
+ :C
+
+
+```
+
+
+ --- 
+ 
+```{julia}
+#| eval: false
+findall(A)
+
+```
+
+
+Return a vector `I` of the `true` indices or keys of `A`. If there are no such elements of `A`, return an empty array. To search for other kinds of values, pass a predicate as the first argument.
+ 
+
+Indices or keys are of the same type as those returned by [`keys(A)`](@ref) and [`pairs(A)`](@ref).
+ 
+
+See also: [`findfirst`](@ref), [`searchsorted`](@ref).
+ 
+
+
+### Examples
+    
+
+
+```{julia}
+#| eval: false
+julia> A = [true, false, false, true]
+4-element Vector{Bool}:
+ 1
+ 0
+ 0
+ 1
+
+julia> findall(A)
+2-element Vector{Int64}:
+ 1
+ 4
+
+julia> A = [true false; false true]
+2×2 Matrix{Bool}:
+ 1  0
+ 0  1
+
+julia> findall(A)
+2-element Vector{CartesianIndex{2}}:
+ CartesianIndex(1, 1)
+ CartesianIndex(2, 2)
+
+julia> findall(falses(3))
+Int64[]
+
+```
+
+
+ --- 
+ 
+```{julia}
+#| eval: false
+findall(c::AbstractChar, s::AbstractString)
+
+```
+
+
+Return a vector `I` of the indices of `s` where `s[i] == c`. If there are no such elements in `s`, return an empty array.
+ 
+
+
+### Examples
+    
+
+
+```{julia}
+#| eval: false
+julia> findall('a', "batman")
+2-element Vector{Int64}:
+ 2
+ 5
+
+```
+
+
+!!! compat "Julia 1.7"
+    This method requires at least Julia 1.7.
+
+

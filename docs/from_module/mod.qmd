@@ -1,0 +1,124 @@
+---
+engine: julia
+---
+
+# mod
+    
+
+```{julia}
+#| eval: false
+mod(x::Integer, r::AbstractUnitRange)
+
+```
+
+
+Find `y` in the range `r` such that $x ≡ y (mod n)$, where `n = length(r)`, i.e. `y = mod(x - first(r), n) + first(r)`.
+ 
+
+See also [`mod1`](@ref).
+ 
+
+
+### Examples
+    
+
+
+```{julia}
+#| eval: false
+julia> mod(0, Base.OneTo(3))  # mod1(0, 3)
+3
+
+julia> mod(3, 0:2)  # mod(3, 3)
+0
+
+```
+
+
+!!! compat "Julia 1.3"
+    This method requires at least Julia 1.3.
+
+
+ --- 
+ 
+```{julia}
+#| eval: false
+mod(x, y)
+rem(x, y, RoundDown)
+
+```
+
+
+The reduction of `x` modulo `y`, or equivalently, the remainder of `x` after floored division by `y`, i.e. `x - y*fld(x,y)` if computed without intermediate rounding.
+ 
+
+The result will have the same sign as `y`, and magnitude less than `abs(y)` (with some exceptions, see note below).
+ 
+
+!!! note
+    When used with floating point values, the exact result may not be representable by the type, and so rounding error may occur. In particular, if the exact result is very close to `y`, then it may be rounded to `y`.
+
+
+See also: [`rem`](@ref), [`div`](@ref), [`fld`](@ref), [`mod1`](@ref), [`invmod`](@ref).
+ 
+
+
+```{julia}
+#| eval: false
+julia> mod(8, 3)
+2
+
+julia> mod(9, 3)
+0
+
+julia> mod(8.9, 3)
+2.9000000000000004
+
+julia> mod(eps(), 3)
+2.220446049250313e-16
+
+julia> mod(-eps(), 3)
+3.0
+
+julia> mod.(-5:5, 3)'
+1×11 adjoint(::Vector{Int64}) with eltype Int64:
+ 1  2  0  1  2  0  1  2  0  1  2
+
+```
+
+
+ --- 
+ 
+```{julia}
+#| eval: false
+rem(x::Integer, T::Type{<:Integer}) -> T
+mod(x::Integer, T::Type{<:Integer}) -> T
+%(x::Integer, T::Type{<:Integer}) -> T
+
+```
+
+
+Find `y::T` such that `x` ≡ `y` (mod n), where n is the number of integers representable in `T`, and `y` is an integer in `[typemin(T),typemax(T)]`. If `T` can represent any integer (e.g. `T == BigInt`), then this operation corresponds to a conversion to `T`.
+ 
+
+
+### Examples
+    
+
+
+```{julia}
+#| eval: false
+julia> x = 129 % Int8
+-127
+
+julia> typeof(x)
+Int8
+
+julia> x = 129 % BigInt
+129
+
+julia> typeof(x)
+BigInt
+
+```
+
+
