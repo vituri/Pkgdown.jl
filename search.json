@@ -1,0 +1,153 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Pkgdown.jl",
+    "section": "",
+    "text": "Pkgdown.jl is a package inspired by R pkgdown. It provides an easy way to generate a website with documentation and vignettes, by creating a Quarto project.\nBeing powered by Quarto means that deploying to Github pages, customizing the style and many more things are taken for granted.\n\n\nAdvantages?\nCI/CD?\nVersioning?"
+  },
+  {
+    "objectID": "index.html#comparison-to-documenter.jl",
+    "href": "index.html#comparison-to-documenter.jl",
+    "title": "Pkgdown.jl",
+    "section": "",
+    "text": "Advantages?\nCI/CD?\nVersioning?"
+  },
+  {
+    "objectID": "test.html",
+    "href": "test.html",
+    "title": "",
+    "section": "",
+    "text": "sin(x)\n\nCompute sine of x, where x is in radians.\nSee also sind, sinpi, sincos, cis, asin.\n\nExamples\n\njulia&gt; round.(sin.(range(0, 2pi, length=9)'), digits=3)\n1×9 Matrix{Float64}:\n 0.0  0.707  1.0  0.707  0.0  -0.707  -1.0  -0.707  -0.0\n\njulia&gt; sind(45)\n0.7071067811865476\n\njulia&gt; sinpi(1/4)\n0.7071067811865475\n\njulia&gt; round.(sincos(pi/6), digits=3)\n(0.5, 0.866)\n\njulia&gt; round(cis(pi/6), digits=3)\n0.866 + 0.5im\n\njulia&gt; round(exp(im*pi/6), digits=3)\n0.866 + 0.5im\n\n\n\nsin(A::AbstractMatrix)\n\nCompute the matrix sine of a square matrix A.\nIf A is symmetric or Hermitian, its eigendecomposition (eigen) is used to compute the sine. Otherwise, the sine is determined by calling exp.\n\n\nExamples\n\njulia&gt; sin(fill(1.0, (2,2)))\n2×2 Matrix{Float64}:\n 0.454649  0.454649\n 0.454649  0.454649"
+  },
+  {
+    "objectID": "from_module/sin.html",
+    "href": "from_module/sin.html",
+    "title": "sin",
+    "section": "",
+    "text": "sin\n\nsin(x)\n\nCompute sine of x, where x is in radians.\nSee also sind, sinpi, sincos, cis, asin.\n\nExamples\n\njulia&gt; round.(sin.(range(0, 2pi, length=9)'), digits=3)\n1×9 Matrix{Float64}:\n 0.0  0.707  1.0  0.707  0.0  -0.707  -1.0  -0.707  -0.0\n\njulia&gt; sind(45)\n0.7071067811865476\n\njulia&gt; sinpi(1/4)\n0.7071067811865475\n\njulia&gt; round.(sincos(pi/6), digits=3)\n(0.5, 0.866)\n\njulia&gt; round(cis(pi/6), digits=3)\n0.866 + 0.5im\n\njulia&gt; round(exp(im*pi/6), digits=3)\n0.866 + 0.5im",
+    "crumbs": [
+      "Reference",
+      "sin"
+    ]
+  },
+  {
+    "objectID": "from_module/mod.html",
+    "href": "from_module/mod.html",
+    "title": "",
+    "section": "",
+    "text": "mod(x::Integer, r::AbstractUnitRange)\n\nFind y in the range r such that \\(x ≡ y (mod n)\\), where n = length(r), i.e. y = mod(x - first(r), n) + first(r).\nSee also mod1.\n\nExamples\n\njulia&gt; mod(0, Base.OneTo(3))  # mod1(0, 3)\n3\n\njulia&gt; mod(3, 0:2)  # mod(3, 3)\n0\n\n!!! compat “Julia 1.3” This method requires at least Julia 1.3.\n\n\nmod(x, y)\nrem(x, y, RoundDown)\n\nThe reduction of x modulo y, or equivalently, the remainder of x after floored division by y, i.e. x - y*fld(x,y) if computed without intermediate rounding.\nThe result will have the same sign as y, and magnitude less than abs(y) (with some exceptions, see note below).\n!!! note When used with floating point values, the exact result may not be representable by the type, and so rounding error may occur. In particular, if the exact result is very close to y, then it may be rounded to y.\nSee also: rem, div, fld, mod1, invmod.\n\njulia&gt; mod(8, 3)\n2\n\njulia&gt; mod(9, 3)\n0\n\njulia&gt; mod(8.9, 3)\n2.9000000000000004\n\njulia&gt; mod(eps(), 3)\n2.220446049250313e-16\n\njulia&gt; mod(-eps(), 3)\n3.0\n\njulia&gt; mod.(-5:5, 3)'\n1×11 adjoint(::Vector{Int64}) with eltype Int64:\n 1  2  0  1  2  0  1  2  0  1  2\n\n\n\nrem(x::Integer, T::Type{&lt;:Integer}) -&gt; T\nmod(x::Integer, T::Type{&lt;:Integer}) -&gt; T\n%(x::Integer, T::Type{&lt;:Integer}) -&gt; T\n\nFind y::T such that x ≡ y (mod n), where n is the number of integers representable in T, and y is an integer in [typemin(T),typemax(T)]. If T can represent any integer (e.g. T == BigInt), then this operation corresponds to a conversion to T.\n\n\nExamples\n\njulia&gt; x = 129 % Int8\n-127\n\njulia&gt; typeof(x)\nInt8\n\njulia&gt; x = 129 % BigInt\n129\n\njulia&gt; typeof(x)\nBigInt",
+    "crumbs": [
+      "Reference",
+      "mod"
+    ]
+  },
+  {
+    "objectID": "from_module/div.html",
+    "href": "from_module/div.html",
+    "title": "div",
+    "section": "",
+    "text": "div\n\ndiv(x, y)\n÷(x, y)\n\nThe quotient from Euclidean (integer) division. Generally equivalent to a mathematical operation x/y without a fractional part.\nSee also: cld, fld, rem, divrem.\n\nExamples\n\njulia&gt; 9 ÷ 4\n2\n\njulia&gt; -5 ÷ 3\n-1\n\njulia&gt; 5.0 ÷ 2\n2.0\n\njulia&gt; div.(-5:5, 3)'\n1×11 adjoint(::Vector{Int64}) with eltype Int64:\n -1  -1  -1  0  0  0  0  0  1  1  1\n\n\n\ndiv(x, y, r::RoundingMode=RoundToZero)\n\nThe quotient from Euclidean (integer) division. Computes x / y, rounded to an integer according to the rounding mode r. In other words, the quantity\n\nround(x / y, r)\n\nwithout any intermediate rounding.\n!!! compat “Julia 1.4” The three-argument method taking a RoundingMode requires Julia 1.4 or later.\nSee also fld and cld, which are special cases of this function.\n!!! compat “Julia 1.9” RoundFromZero requires at least Julia 1.9.\n\n\nExamples:\n\njulia&gt; div(4, 3, RoundDown) # Matches fld(4, 3)\n1\njulia&gt; div(4, 3, RoundUp) # Matches cld(4, 3)\n2\njulia&gt; div(5, 2, RoundNearest)\n2\njulia&gt; div(5, 2, RoundNearestTiesAway)\n3\njulia&gt; div(-5, 2, RoundNearest)\n-2\njulia&gt; div(-5, 2, RoundNearestTiesAway)\n-3\njulia&gt; div(-5, 2, RoundNearestTiesUp)\n-2\njulia&gt; div(4, 3, RoundFromZero)\n2\njulia&gt; div(-4, 3, RoundFromZero)\n-2",
+    "crumbs": [
+      "Reference",
+      "div"
+    ]
+  },
+  {
+    "objectID": "from_module/cos.html",
+    "href": "from_module/cos.html",
+    "title": "",
+    "section": "",
+    "text": "cos(x)\n\nCompute cosine of x, where x is in radians.\nSee also cosd, cospi, sincos, cis.\n\n\ncos(A::AbstractMatrix)\n\nCompute the matrix cosine of a square matrix A.\nIf A is symmetric or Hermitian, its eigendecomposition (eigen) is used to compute the cosine. Otherwise, the cosine is determined by calling exp.\n\nExamples\n\njulia&gt; cos(fill(1.0, (2,2)))\n2×2 Matrix{Float64}:\n  0.291927  -0.708073\n -0.708073   0.291927",
+    "crumbs": [
+      "Reference",
+      "cos"
+    ]
+  },
+  {
+    "objectID": "tutorials/tutorial-1.html",
+    "href": "tutorials/tutorial-1.html",
+    "title": "Making something cool",
+    "section": "",
+    "text": "Making something cool\nFirst tutorial! Uhuuul!",
+    "crumbs": [
+      "Tutorials",
+      "Making something cool"
+    ]
+  },
+  {
+    "objectID": "tutorials.html",
+    "href": "tutorials.html",
+    "title": "Tutorials",
+    "section": "",
+    "text": "Tutorials\nHere we gather many tutorials!!",
+    "crumbs": [
+      "Tutorials"
+    ]
+  },
+  {
+    "objectID": "tutorials/tutorial-2.html",
+    "href": "tutorials/tutorial-2.html",
+    "title": "Making something even more cool",
+    "section": "",
+    "text": "Making something even more cool\nSecond tutorial! Uhuuul!",
+    "crumbs": [
+      "Tutorials",
+      "Making something even more cool"
+    ]
+  },
+  {
+    "objectID": "from_module/findall.html",
+    "href": "from_module/findall.html",
+    "title": "findall",
+    "section": "",
+    "text": "findall\n\nfindall(f::Function, A)\n\nReturn a vector I of the indices or keys of A where f(A[I]) returns true. If there are no such elements of A, return an empty array.\nIndices or keys are of the same type as those returned by keys(A) and pairs(A).\n\nExamples\n\njulia&gt; x = [1, 3, 4]\n3-element Vector{Int64}:\n 1\n 3\n 4\n\njulia&gt; findall(isodd, x)\n2-element Vector{Int64}:\n 1\n 2\n\njulia&gt; A = [1 2 0; 3 4 0]\n2×3 Matrix{Int64}:\n 1  2  0\n 3  4  0\njulia&gt; findall(isodd, A)\n2-element Vector{CartesianIndex{2}}:\n CartesianIndex(1, 1)\n CartesianIndex(2, 1)\n\njulia&gt; findall(!iszero, A)\n4-element Vector{CartesianIndex{2}}:\n CartesianIndex(1, 1)\n CartesianIndex(2, 1)\n CartesianIndex(1, 2)\n CartesianIndex(2, 2)\n\njulia&gt; d = Dict(:A =&gt; 10, :B =&gt; -1, :C =&gt; 0)\nDict{Symbol, Int64} with 3 entries:\n  :A =&gt; 10\n  :B =&gt; -1\n  :C =&gt; 0\n\njulia&gt; findall(x -&gt; x &gt;= 0, d)\n2-element Vector{Symbol}:\n :A\n :C",
+    "crumbs": [
+      "Reference",
+      "findall"
+    ]
+  },
+  {
+    "objectID": "from_module/findprev.html",
+    "href": "from_module/findprev.html",
+    "title": "findprev",
+    "section": "",
+    "text": "findprev\n\nfindprev(A, i)\n\nFind the previous index before or including i of a true element of A, or nothing if not found.\nIndices are of the same type as those returned by keys(A) and pairs(A).\nSee also: findnext, findfirst, findall.\n\nExamples\n\njulia&gt; A = [false, false, true, true]\n4-element Vector{Bool}:\n 0\n 0\n 1\n 1\n\njulia&gt; findprev(A, 3)\n3\n\njulia&gt; findprev(A, 1) # returns nothing, but not printed in the REPL\n\njulia&gt; A = [false false; true true]\n2×2 Matrix{Bool}:\n 0  0\n 1  1\n\njulia&gt; findprev(A, CartesianIndex(2, 1))\nCartesianIndex(2, 1)\n\n\n\nfindprev(predicate::Function, A, i)\n\nFind the previous index before or including i of an element of A for which predicate returns true, or nothing if not found.\nIndices are of the same type as those returned by keys(A) and pairs(A).\n\n\nExamples\n\njulia&gt; A = [4, 6, 1, 2]\n4-element Vector{Int64}:\n 4\n 6\n 1\n 2\n\njulia&gt; findprev(isodd, A, 1) # returns nothing, but not printed in the REPL\n\njulia&gt; findprev(isodd, A, 3)\n3\n\njulia&gt; A = [4 6; 1 2]\n2×2 Matrix{Int64}:\n 4  6\n 1  2\n\njulia&gt; findprev(isodd, A, CartesianIndex(1, 2))\nCartesianIndex(2, 1)\n\n\n\nfindprev(pattern::AbstractString, string::AbstractString, start::Integer)\n\nFind the previous occurrence of pattern in string starting at position start.\nThe return value is a range of indices where the matching sequence is found, such that s[findprev(x, s, i)] == x:\nfindprev(\"substring\", string, i) == start:stop such that string[start:stop] == \"substring\" and stop &lt;= i, or nothing if unmatched.\n\n\nExamples\n\njulia&gt; findprev(\"z\", \"Hello to the world\", 18) === nothing\ntrue\n\njulia&gt; findprev(\"o\", \"Hello to the world\", 18)\n15:15\n\njulia&gt; findprev(\"Julia\", \"JuliaLang\", 6)\n1:5\n\n\n\nfindprev(ch::AbstractChar, string::AbstractString, start::Integer)\n\nFind the previous occurrence of character ch in string starting at position start.\n!!! compat “Julia 1.3” This method requires at least Julia 1.3.\n\n\nExamples\n\njulia&gt; findprev('z', \"Hello to the world\", 18) === nothing\ntrue\n\njulia&gt; findprev('o', \"Hello to the world\", 18)\n15\n\n\n\nfindprev(pattern::AbstractVector{&lt;:Union{Int8,UInt8}},\n         A::AbstractVector{&lt;:Union{Int8,UInt8}},\n         start::Integer)\n\nFind the previous occurrence of the sequence pattern in vector A starting at position start.\n!!! compat “Julia 1.6” This method requires at least Julia 1.6.\n\n\nExamples\n\njulia&gt; findprev([0x52, 0x62], [0x40, 0x52, 0x62, 0x52, 0x62], 3)\n2:3",
+    "crumbs": [
+      "Reference",
+      "findprev"
+    ]
+  },
+  {
+    "objectID": "from_module/tan.html",
+    "href": "from_module/tan.html",
+    "title": "",
+    "section": "",
+    "text": "tan(x)\n\nCompute tangent of x, where x is in radians.\n\n\ntan(A::AbstractMatrix)\n\nCompute the matrix tangent of a square matrix A.\nIf A is symmetric or Hermitian, its eigendecomposition (eigen) is used to compute the tangent. Otherwise, the tangent is determined by calling exp.\n\nExamples\n\njulia&gt; tan(fill(1.0, (2,2)))\n2×2 Matrix{Float64}:\n -1.09252  -1.09252\n -1.09252  -1.09252",
+    "crumbs": [
+      "Reference",
+      "tan"
+    ]
+  },
+  {
+    "objectID": "from_module/findfirst.html",
+    "href": "from_module/findfirst.html",
+    "title": "findfirst",
+    "section": "",
+    "text": "findfirst\n\nfindfirst(A)\n\nReturn the index or key of the first true value in A. Return nothing if no such value is found. To search for other kinds of values, pass a predicate as the first argument.\nIndices or keys are of the same type as those returned by keys(A) and pairs(A).\nSee also: findall, findnext, findlast, searchsortedfirst.\n\nExamples\n\njulia&gt; A = [false, false, true, false]\n4-element Vector{Bool}:\n 0\n 0\n 1\n 0\n\njulia&gt; findfirst(A)\n3\n\njulia&gt; findfirst(falses(3)) # returns nothing, but not printed in the REPL\n\njulia&gt; A = [false false; true false]\n2×2 Matrix{Bool}:\n 0  0\n 1  0\n\njulia&gt; findfirst(A)\nCartesianIndex(2, 1)\n\n\n\nfindfirst(predicate::Function, A)\n\nReturn the index or key of the first element of A for which predicate returns true. Return nothing if there is no such element.\nIndices or keys are of the same type as those returned by keys(A) and pairs(A).\n\n\nExamples\n\njulia&gt; A = [1, 4, 2, 2]\n4-element Vector{Int64}:\n 1\n 4\n 2\n 2\n\njulia&gt; findfirst(iseven, A)\n2\n\njulia&gt; findfirst(x -&gt; x&gt;10, A) # returns nothing, but not printed in the REPL\n\njulia&gt; findfirst(isequal(4), A)\n2\n\njulia&gt; A = [1 4; 2 2]\n2×2 Matrix{Int64}:\n 1  4\n 2  2\n\njulia&gt; findfirst(iseven, A)\nCartesianIndex(2, 1)\n\n\n\nfindfirst(pattern::AbstractString, string::AbstractString)\nfindfirst(pattern::AbstractPattern, string::String)\n\nFind the first occurrence of pattern in string. Equivalent to findnext(pattern, string, firstindex(s)).\n\n\nExamples\n\njulia&gt; findfirst(\"z\", \"Hello to the world\") # returns nothing, but not printed in the REPL\n\njulia&gt; findfirst(\"Julia\", \"JuliaLang\")\n1:5\n\n\n\nfindfirst(ch::AbstractChar, string::AbstractString)\n\nFind the first occurrence of character ch in string.\n!!! compat “Julia 1.3” This method requires at least Julia 1.3.\n\n\nExamples\n\njulia&gt; findfirst('a', \"happy\")\n2\n\njulia&gt; findfirst('z', \"happy\") === nothing\ntrue\n\n\n\nfindfirst(pattern::AbstractVector{&lt;:Union{Int8,UInt8}},\n          A::AbstractVector{&lt;:Union{Int8,UInt8}})\n\nFind the first occurrence of sequence pattern in vector A.\n!!! compat “Julia 1.6” This method requires at least Julia 1.6.\n\n\nExamples\n\njulia&gt; findfirst([0x52, 0x62], [0x40, 0x52, 0x62, 0x63])\n2:3",
+    "crumbs": [
+      "Reference",
+      "findfirst"
+    ]
+  },
+  {
+    "objectID": "reference.html",
+    "href": "reference.html",
+    "title": "Reference",
+    "section": "",
+    "text": "Reference\nSome cool refs!",
+    "crumbs": [
+      "Reference"
+    ]
+  }
+]
