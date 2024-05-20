@@ -47,7 +47,7 @@
     "href": "from_module/div.html",
     "title": "div",
     "section": "",
-    "text": "div\n\ndiv(x, y)\n÷(x, y)\n\nThe quotient from Euclidean (integer) division. Generally equivalent to a mathematical operation x/y without a fractional part.\nSee also: cld, fld, rem, divrem.\n\nExamples\n\njulia&gt; 9 ÷ 4\n2\n\njulia&gt; -5 ÷ 3\n-1\n\njulia&gt; 5.0 ÷ 2\n2.0\n\njulia&gt; div.(-5:5, 3)'\n1×11 adjoint(::Vector{Int64}) with eltype Int64:\n -1  -1  -1  0  0  0  0  0  1  1  1\n\n\n\ndiv(x, y, r::RoundingMode=RoundToZero)\n\nThe quotient from Euclidean (integer) division. Computes x / y, rounded to an integer according to the rounding mode r. In other words, the quantity\n\nround(x / y, r)\n\nwithout any intermediate rounding.\n!!! compat “Julia 1.4” The three-argument method taking a RoundingMode requires Julia 1.4 or later.\nSee also fld and cld, which are special cases of this function.\n!!! compat “Julia 1.9” RoundFromZero requires at least Julia 1.9.\n\n\nExamples:\n\njulia&gt; div(4, 3, RoundDown) # Matches fld(4, 3)\n1\njulia&gt; div(4, 3, RoundUp) # Matches cld(4, 3)\n2\njulia&gt; div(5, 2, RoundNearest)\n2\njulia&gt; div(5, 2, RoundNearestTiesAway)\n3\njulia&gt; div(-5, 2, RoundNearest)\n-2\njulia&gt; div(-5, 2, RoundNearestTiesAway)\n-3\njulia&gt; div(-5, 2, RoundNearestTiesUp)\n-2\njulia&gt; div(4, 3, RoundFromZero)\n2\njulia&gt; div(-4, 3, RoundFromZero)\n-2",
+    "text": "div\n\n\n\n\n\n\ndocblock\n\n\n\n\ndiv(x, y)\n÷(x, y)\n\nThe quotient from Euclidean (integer) division. Generally equivalent to a mathematical operation x/y without a fractional part.\nSee also: cld, fld, rem, divrem.\n\nExamples\n\njulia&gt; 9 ÷ 4\n2\n\njulia&gt; -5 ÷ 3\n-1\n\njulia&gt; 5.0 ÷ 2\n2.0\n\njulia&gt; div.(-5:5, 3)'\n1×11 adjoint(::Vector{Int64}) with eltype Int64:\n -1  -1  -1  0  0  0  0  0  1  1  1\n\n\n\n\n\n\ndiv(x, y, r::RoundingMode=RoundToZero)\n\nThe quotient from Euclidean (integer) division. Computes x / y, rounded to an integer according to the rounding mode r. In other words, the quantity\n\nround(x / y, r)\n\nwithout any intermediate rounding.\n!!! compat “Julia 1.4” The three-argument method taking a RoundingMode requires Julia 1.4 or later.\nSee also fld and cld, which are special cases of this function.\n!!! compat “Julia 1.9” RoundFromZero requires at least Julia 1.9.\n\nExamples:\n\njulia&gt; div(4, 3, RoundDown) # Matches fld(4, 3)\n1\njulia&gt; div(4, 3, RoundUp) # Matches cld(4, 3)\n2\njulia&gt; div(5, 2, RoundNearest)\n2\njulia&gt; div(5, 2, RoundNearestTiesAway)\n3\njulia&gt; div(-5, 2, RoundNearest)\n-2\njulia&gt; div(-5, 2, RoundNearestTiesAway)\n-3\njulia&gt; div(-5, 2, RoundNearestTiesUp)\n-2\njulia&gt; div(4, 3, RoundFromZero)\n2\njulia&gt; div(-4, 3, RoundFromZero)\n-2",
     "crumbs": [
       "Reference",
       "div"
@@ -56,9 +56,9 @@
   {
     "objectID": "from_module/cos.html",
     "href": "from_module/cos.html",
-    "title": "",
+    "title": "cos",
     "section": "",
-    "text": "cos(x)\n\nCompute cosine of x, where x is in radians.\nSee also cosd, cospi, sincos, cis.\n\n\ncos(A::AbstractMatrix)\n\nCompute the matrix cosine of a square matrix A.\nIf A is symmetric or Hermitian, its eigendecomposition (eigen) is used to compute the cosine. Otherwise, the cosine is determined by calling exp.\n\nExamples\n\njulia&gt; cos(fill(1.0, (2,2)))\n2×2 Matrix{Float64}:\n  0.291927  -0.708073\n -0.708073   0.291927",
+    "text": "cos\n\n\n\n\n\n\ndocblock\n\n\n\n\ncos(x)\n\nCompute cosine of x, where x is in radians.\nSee also cosd, cospi, sincos, cis.\n\n\n\n\n\n\n\n\n\ndocblock\n\n\n\n\ncos(A::AbstractMatrix)\n\nCompute the matrix cosine of a square matrix A.\nIf A is symmetric or Hermitian, its eigendecomposition (eigen) is used to compute the cosine. Otherwise, the cosine is determined by calling exp.\n\nExamples\n\njulia&gt; cos(fill(1.0, (2,2)))\n2×2 Matrix{Float64}:\n  0.291927  -0.708073\n -0.708073   0.291927",
     "crumbs": [
       "Reference",
       "cos"
@@ -101,7 +101,7 @@
     "href": "from_module/findall.html",
     "title": "findall",
     "section": "",
-    "text": "findall\n\nfindall(f::Function, A)\n\nReturn a vector I of the indices or keys of A where f(A[I]) returns true. If there are no such elements of A, return an empty array.\nIndices or keys are of the same type as those returned by keys(A) and pairs(A).\n\nExamples\n\njulia&gt; x = [1, 3, 4]\n3-element Vector{Int64}:\n 1\n 3\n 4\n\njulia&gt; findall(isodd, x)\n2-element Vector{Int64}:\n 1\n 2\n\njulia&gt; A = [1 2 0; 3 4 0]\n2×3 Matrix{Int64}:\n 1  2  0\n 3  4  0\njulia&gt; findall(isodd, A)\n2-element Vector{CartesianIndex{2}}:\n CartesianIndex(1, 1)\n CartesianIndex(2, 1)\n\njulia&gt; findall(!iszero, A)\n4-element Vector{CartesianIndex{2}}:\n CartesianIndex(1, 1)\n CartesianIndex(2, 1)\n CartesianIndex(1, 2)\n CartesianIndex(2, 2)\n\njulia&gt; d = Dict(:A =&gt; 10, :B =&gt; -1, :C =&gt; 0)\nDict{Symbol, Int64} with 3 entries:\n  :A =&gt; 10\n  :B =&gt; -1\n  :C =&gt; 0\n\njulia&gt; findall(x -&gt; x &gt;= 0, d)\n2-element Vector{Symbol}:\n :A\n :C",
+    "text": "findall\n\n\n\n\n\n\ndocblock\n\n\n\n\nfindall(f::Function, A)\n\nReturn a vector I of the indices or keys of A where f(A[I]) returns true. If there are no such elements of A, return an empty array.\nIndices or keys are of the same type as those returned by keys(A) and pairs(A).\n\nExamples\n\njulia&gt; x = [1, 3, 4]\n3-element Vector{Int64}:\n 1\n 3\n 4\n\njulia&gt; findall(isodd, x)\n2-element Vector{Int64}:\n 1\n 2\n\njulia&gt; A = [1 2 0; 3 4 0]\n2×3 Matrix{Int64}:\n 1  2  0\n 3  4  0\njulia&gt; findall(isodd, A)\n2-element Vector{CartesianIndex{2}}:\n CartesianIndex(1, 1)\n CartesianIndex(2, 1)\n\njulia&gt; findall(!iszero, A)\n4-element Vector{CartesianIndex{2}}:\n CartesianIndex(1, 1)\n CartesianIndex(2, 1)\n CartesianIndex(1, 2)\n CartesianIndex(2, 2)\n\njulia&gt; d = Dict(:A =&gt; 10, :B =&gt; -1, :C =&gt; 0)\nDict{Symbol, Int64} with 3 entries:\n  :A =&gt; 10\n  :B =&gt; -1\n  :C =&gt; 0\n\njulia&gt; findall(x -&gt; x &gt;= 0, d)\n2-element Vector{Symbol}:\n :A\n :C\n\n\n\n\n\n\n\n\n\n\n\n\ndocblock\n\n\n\n\nfindall(A)\n\nReturn a vector I of the true indices or keys of A. If there are no such elements of A, return an empty array. To search for other kinds of values, pass a predicate as the first argument.\nIndices or keys are of the same type as those returned by keys(A) and pairs(A).\nSee also: findfirst, searchsorted.\n\nExamples\n\njulia&gt; A = [true, false, false, true]\n4-element Vector{Bool}:\n 1\n 0\n 0\n 1\n\njulia&gt; findall(A)\n2-element Vector{Int64}:\n 1\n 4\n\njulia&gt; A = [true false; false true]\n2×2 Matrix{Bool}:\n 1  0\n 0  1\n\njulia&gt; findall(A)\n2-element Vector{CartesianIndex{2}}:\n CartesianIndex(1, 1)\n CartesianIndex(2, 2)\n\njulia&gt; findall(falses(3))\nInt64[]\n\n\n\n\n\n\n\n\n\n\n\ndocblock\n\n\n\n\nfindall(c::AbstractChar, s::AbstractString)\n\nReturn a vector I of the indices of s where s[i] == c. If there are no such elements in s, return an empty array.\n\nExamples\n\njulia&gt; findall('a', \"batman\")\n2-element Vector{Int64}:\n 2\n 5\n\n!!! compat “Julia 1.7” This method requires at least Julia 1.7.",
     "crumbs": [
       "Reference",
       "findall"
@@ -145,7 +145,7 @@
     "href": "reference.html",
     "title": "Reference",
     "section": "",
-    "text": "Reference\nSome cool refs!",
+    "text": "Reference\nSome cool refs! See @from_module/cos.qmd",
     "crumbs": [
       "Reference"
     ]
